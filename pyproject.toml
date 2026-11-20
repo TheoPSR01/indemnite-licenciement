@@ -1,0 +1,40 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "indemnite-licenciement"
+version = "0.1.0"
+description = "Calcul de l'indemnité légale de licenciement (Code du travail, articles L1234-9 et R1234-1 à R1234-4)"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.10"
+authors = [{ name = "Théo Pasquier" }]
+keywords = ["indemnité de licenciement", "rupture conventionnelle", "droit du travail", "salaire de référence", "ancienneté", "France"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: End Users/Desktop",
+    "Natural Language :: French",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Topic :: Office/Business :: Financial",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[project.scripts]
+indemnite-licenciement = "indemnite_licenciement.__main__:main"
+
+[project.urls]
+Homepage = "https://github.com/TheoPSR01/indemnite-licenciement"
+Issues = "https://github.com/TheoPSR01/indemnite-licenciement/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/indemnite_licenciement"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
